@@ -74,6 +74,7 @@ Identify active plans (savings or investments) that have not received any inflow
 
 - Some plans might have no inflow at all (i.e., not in `savings_savingsaccount`). To include those, a `LEFT JOIN` and `IS NULL` check could be added.
 - But for now, I only considered plans that had **at least one inflow** in the past and are now inactive.
+  
 ---
 
 ## ✅ Q4: Customer Lifetime Value (CLV) Estimation
@@ -89,8 +90,6 @@ Where:
 - Tenure is the number of months since the customer signed up
 - Profit per transaction is 0.1% of transaction value
 
----
-
 ### Approach
 
 - I used a CTE (`UserTransactionSummary`) to compute:
@@ -103,8 +102,6 @@ Where:
   \text{CLV} = \left(\frac{12}{\text{tenure}}\right) \times \text{total_profit}
   \]
 - I sorted the result by `estimated_clv` to prioritize highest-value users.
-
----
 
 ### Challenges
 
