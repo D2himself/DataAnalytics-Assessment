@@ -74,7 +74,7 @@ Identify active plans (savings or investments) that have not received any inflow
 
 - Some plans might have no inflow at all (i.e., not in `savings_savingsaccount`). To include those, a `LEFT JOIN` and `IS NULL` check could be added.
 - But for now, I only considered plans that had **at least one inflow** in the past and are now inactive.
-  
+- The logic was a bit challenging.
 ---
 
 ## ✅ Q4: Customer Lifetime Value (CLV) Estimation
@@ -107,3 +107,4 @@ Where:
 
 - I had to prevent division-by-zero errors by filtering out users with zero-month tenure.
 - I confirmed that `confirmed_amount` is in kobo and converted to naira for monetary calculations.
+- The logic was challenging.
